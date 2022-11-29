@@ -7,25 +7,12 @@ const port = process.env.PORT || 3000;
 app.get('/abc', (req, res) => {
 
     console.log("request ip: ", req.ip);
-  res.send('Hello World! ' + new Date().toString() + "Hello World Server!" );
+
+  res.send('Hello World! ' + new Date().toString());
 })
 
-app.get('/getweather', (req, res) => {
-
-  console.log("request ip: ", req.ip);
-res.send('Hello World! ' + new Date().toString() + "Hello World Server!" );
-})
-
-app.get('/gettime', (req, res) => {
-
-  console.log("request ip: ", req.ip);
-res.send('Hello World! ' + new Date().toString() + "Hello World Server!" );
-})
-
-const __divname = path.resolve();
+const __dirname = path.resolve();
 app.use('/', express.static(path.join(__dirname, './web/build')))
-app.use('*', express.static(path.join(__dirname, './web/build')))
-
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
